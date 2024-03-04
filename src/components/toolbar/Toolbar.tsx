@@ -9,9 +9,6 @@ import {
     Heading2,
 } from "lucide-react"
 
-import ListItem from '@tiptap/extension-list-item'
-import { EditorProvider, useCurrentEditor } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
 import { Toggle } from "../ui/toggle"
 
@@ -29,13 +26,7 @@ export default function Toolbar({ editor }: Props) {
         size="sm"
         pressed={editor.isActive("heading")}
         onPressedChange={() => editor.chain().focus().toggleHeading({ level:2 }).run()}
-        disabled={
-          !editor.can()
-            .chain()
-            .focus()
-            .toggleHeading({ level:2 })
-            .run()
-        }
+       
       >
         <Heading2 className="h-4 w-4" />
       </Toggle>
@@ -89,13 +80,7 @@ export default function Toolbar({ editor }: Props) {
         size="sm"
         pressed={editor.isActive("bulletList")}
         onPressedChange={() => editor.chain().focus().toggleBulletList().run()}
-        disabled={
-          !editor.can()
-            .chain()
-            .focus()
-            .toggleBulletList()
-            .run()
-        }
+       
       >
         <List className="h-4 w-4" />
       </Toggle>
@@ -104,13 +89,7 @@ export default function Toolbar({ editor }: Props) {
         size="sm"
         pressed={editor.isActive("orderedList")}
         onPressedChange={() => editor.chain().focus().toggleOrderedList().run()}
-        disabled={
-          !editor.can()
-            .chain()
-            .focus()
-            .toggleBulletList()
-            .run()
-        }
+
       >
         <ListOrdered className="h-4 w-4" />
       </Toggle>

@@ -11,7 +11,16 @@ onChange
     onChange?: (richText:string) => void
 }) {
     const editor = useEditor({
-        extensions: [Starterkit.configure({}), Heading.configure({
+        extensions: [Starterkit.configure({
+            bulletList: {
+                keepMarks: true,
+                keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+              },
+              orderedList: {
+                keepMarks: true,
+                keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+              },
+        }), Heading.configure({
             HTMLAttributes:{
                 class: "text-xl font-bold",
                 levels: [2],
